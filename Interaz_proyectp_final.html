@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Control de Ingresos Costa Rica Country Club S.A </title>
+  <style>
+
+    /* Variables de color refinadas */
+:root{
+  --bg:#071028; --panel:#0f1724; --card:#0b1220; --muted:#9aa4b2; --text:#e6eef8;
+  --border:#162033; --accent:#38bdf8; --ok:#22c55e; --err:#ef4444; --warn:#f59e0b;
+  --glass: rgba(255,255,255,0.03);
+}
+
+/* Módulo Socios: contenedor */
+#moduloSocios{
+  /*display:block;*/
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius:14px;
+  padding:20px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Encabezados */
+#moduloSocios h2{
+  margin:0 0 12px 0;
+  font-size:18px;
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* Barra de búsqueda / lector */
+.search-bar{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin-bottom:14px;
+}
+.search-bar .badge{
+  background: linear-gradient(90deg,var(--glass), rgba(255,255,255,0.01));
+  color:var(--muted);
+  padding:8px 10px;
+  border-radius:10px;
+  font-size:13px;
+  border:1px solid rgba(255,255,255,0.02);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.search-bar input{
+  flex:1;
+  background:transparent;
+  border:1px solid var(--border);
+  padding:10px 12px;
+  border-radius:10px;
+  color:var(--text);
+  outline:none;
+  transition:box-shadow .18s, border-color .18s;
+}
+.search-bar input:focus{
+  box-shadow:0 6px 18px rgba(56,189,248,0.08);
+  border-color:rgba(56,189,248,0.35);
+}
+.search-bar button{
+  background:linear-gradient(180deg,var(--accent), #0ea5d7);
+  color:#04202a;
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 6px 14px rgba(14,165,215,0.12);
+}
+
+/* Grid de tarjetas */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+  margin-top:12px;
+}
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border-radius:12px;
+  padding:14px;
+  border:1px solid rgba(255,255,255,0.02);
+  box-shadow: 0 4px 12px rgba(2,6,23,0.45);
+}
+.card h3{margin:0 0 8px 0;font-size:14px;color:var(--muted);}
+
+/* Resultados con estados */
+.resultado{padding:10px;border-radius:10px;font-size:14px;color:var(--text);}
+.resultado.ok{background:linear-gradient(90deg, rgba(34,197,94,0.06), rgba(34,197,94,0.02)); border-left:4px solid rgba(34,197,94,0.9); color:var(--text);}
+.resultado.warn{background:linear-gradient(90deg, rgba(245,158,11,0.06), rgba(245,158,11,0.02)); border-left:4px solid rgba(245,158,11,0.9);}
+.resultado.error{background:linear-gradient(90deg, rgba(239,68,68,0.06), rgba(239,68,68,0.02)); border-left:4px solid rgba(239,68,68,0.9);}
+
+/* Tablas estilizadas */
+.table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  font-size:13px;
+  color:var(--text);
+}
+.table thead th{
+  text-align:left;
+  font-size:12px;
+  color:var(--muted);
+  padding:8px 10px;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.table tbody td{
+  padding:10px;
+  border-bottom:1px dashed rgba(255,255,255,0.02);
+}
+
+/* Bitácora compacta */
+.bitacora{
+  max-height:160px;
+  overflow:auto;
+  padding:8px;
+  border-radius:8px;
+  background:rgba(255,255,255,0.01);
+  font-family:monospace;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* Responsive tweaks */
+@media (max-width:900px){
+  .cards{grid-template-columns:1fr;}
+  .search-bar{flex-direction:column;align-items:stretch;}
+  .search-bar button{width:100%;}
+}
+
+    :root{
+      --bg:#0f172a;--panel:#111827;--text:#e5e7eb;--muted:#9ca3af;--border:#1f2937;
+      --accent:#38bdf8;--ok:#22c55e;--err:#ef4444;--warn:#f59e0b;
+    }
+    html,body{background:linear-gradient(180deg,#0b1020 0%,#0f172a 100%);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;}
+    header{padding:20px;border-bottom:1px solid var(--border);background:rgba(17,24,39,.6);backdrop-filter:blur(6px);}
+    h1{margin:0;font-size:20px}
+    .container{max-width:1120px;margin:0 auto;padding:20px}
+    .grid{display:grid;grid-template-columns:3fr 9fr;gap:16px}
+    .panel{background:linear-gradient(180deg,var(--panel),#0d1628);border:1px solid var(--border);border-radius:12px;padding:16px}
+    .menu h3{margin:0 0 8px;color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.8px}
+    .menu ul{list-style:none;padding:0;margin:0}
+    .menu li{padding:10px 12px;margin:6px 0;border:1px dashed var(--border);border-radius:10px;background:#0c1426;cursor:pointer;}
+    .menu li.active{
+      border:1px solid rgba(34,197,94,.45);
+      background:linear-gradient(180deg,rgba(34,197,94,.1),rgba(34,197,94,.05));
+      color:#22c55e;
+      font-weight:bold;
+    }
+    footer{padding:24px;text-align:center;color:var(--muted);border-top:1px solid var(--border);margin-top:30px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+
+    
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Control de Ingresos Costa Rica Country Club S.A</h1>
+  </header>
+
+  <main class="container">
+    <section class="grid">
+      <!-- Menú principal -->
+      <aside class="panel menu">
+        <h3>Módulos</h3>
+        <ul id="menuOpciones">
+          <li onclick="mostrarModulo('socios', this)">Control de Accesos Socios</li>
+          <li onclick="mostrarModulo('invitados', this)">Control de Accesos Invitados</li>
+          <li onclick="mostrarModulo('proveedores', this)">Control de Accesos Proveedores</li>
+          <li onclick="mostrarModulo('externos', this)">Control de Accesos Invitados Externos</li>
+          <li onclick="mostrarModulo('eventos', this)">Control de Accesos Eventos</li>
+        </ul>
+      </aside>
+
+      <!-- Panel principal: módulos -->
+      <!-- Control de Accesos Socios  -->
+      <section class="panel" id="moduloSocios" style="display:none;">
+        <!-- Registro y control por lector de Carnet -->
+        <h2>Ingreso con carnet (físico o digital)</h2>
+        <div class="search-bar">
+          <span class="badge">Lector conectado</span>
+          <input type="text" placeholder="Escanee o ingrese el carné..." />
+          <button>Validar</button>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Membresía activa</h3>
+            <div class="resultado ok">
+              <p><strong>Acceso autorizado</strong></p>
+              <p>Fecha: 25/11/2025 • Hora: 04:15 PM • Caseta: Norte</p>
+              <p>Acción: apertura de dispositivo de ingreso</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Morosidad / restricción</h3>
+            <div class="resultado error">
+              <p><strong>Acceso denegado</strong> — Motivo: Socio moroso</p>
+              <p>Se registra el evento en bitácora</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Bitácora </h3>
+            <div class="resultado">
+              <p>[25/11/2025 04:15 PM] Socio # Ingreso autorizado — fuente lector</p>
+              <p>[25/11/2025 04:18 PM] Socio # Ingreso denegado — motivo morosidad</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ingreso manual por nombre o cédula -->
+        <h2 style="margin-top:22px;">Ingreso manual de socio</h2>
+        <div class="search-bar">
+          <span class="badge">Busqueda manual</span>
+          <input type="text" placeholder="Nombre o cédula del socio..." />
+          <button>Buscar</button>
+        </div>
+
+        <div class="resultado">
+          <h3>Coincidencias</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Carnet</th>
+                <th>Nombre</th>
+                <th>Identificación</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1-0001-00-0</td>
+                <td>Thomas Araya Murillo</td>
+                <td>118770905</td>
+                <td>Activo</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="resultado ok">
+            <p><strong>Ingreso autorizado</strong></p>
+            <p>Registro en bitácora: fecha, hora, caseta, usuario</p>
+          </div>
+        </div>
+
+        <div class="resultado error">
+          <h3>Sin coincidencias</h3>
+          <p><strong>Socio no encontrado</strong> — No se autoriza el acceso</p>
+        </div>
+
+        <!-- Validación automática con Gestión de Cobros (CxC) -->
+        <h2 style="margin-top:22px;">Validación automática con CxC</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Estado: Activo</h3>
+            <div class="resultado ok">
+              <p>Acceso autorizado</p>
+              <p>Fuente de validación: CxC</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Estado: Moroso</h3>
+            <div class="resultado error">
+              <p>Acceso denegado — morosidad</p>
+              <p>Bitácora: evento registrado con motivo</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Registro automático en bitácora -->
+        <h2 style="margin-top:22px;">Registro automático en bitácora</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Ingreso autorizado</h3>
+            <div class="resultado ok">
+              <p>Campos: fecha, hora, caseta, método de ingreso, usuario del sistema</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Intento fallido</h3>
+            <div class="resultado error">
+              <p>Registro con motivo de denegación</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Validación de familiares asociados -->
+        <h2 style="margin-top:22px;">Acceso de familiares asociados</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Familiar autorizado</h3>
+            <div class="resultado ok">
+              <p>Validación de relación con socio — acceso autorizado</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Familiar con restricciones</h3>
+            <div class="resultado error">
+              <p>Ingreso denegado — motivo (Socio Moroso/Invitado no autorizado)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Control de Carnets vencidos -->
+        <h2 style="margin-top:22px;">Control de Carnets vencidos</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Carnetvigente</h3>
+            <div class="resultado ok">
+              <p>Ingreso autorizado — sin alertas</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Carnet vencido</h3>
+            <div class="resultado warn">
+              <p>Alerta: “Carnet vencido” — requiere verificación manual</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ingreso familiar -->
+        <h2 style="margin-top:22px;">Ingreso familiar</h2>
+        <div class="resultado">
+          <h3>Validación grupal</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Miembro</th>
+                <th>Relación</th>
+                <th>Estado</th>
+                <th>Resultado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Socio titular</td>
+                <td>Titular</td>
+                <td>Activo</td>
+                <td>Autorizado</td>
+              </tr>
+              <tr>
+                <td>María D.</td>
+                <td>Hija</td>
+                <td>Activo</td>
+                <td>Autorizado</td>
+              </tr>
+              <tr>
+                <td>Carlos D.</td>
+                <td>Hijo</td>
+                <td>Restringido</td>
+                <td>Rechazado (motivo visible)</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="resultado warn">
+            <p>Se aprueban ingresos válidos y se muestra el familiar rechazado</p>
+          </div>
+        </div>
+
+        <!-- Consulta del historial del socio -->
+        <h2 style="margin-top:22px;">Historial de ingresos del socio</h2>
+        <div class="resultado">
+          <h3>Historial</h3>
+          <div style="overflow:auto">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Caseta</th>
+                  <th>Método</th>
+                  <th>Resultado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>24/11/2025</td>
+                  <td>08:12 AM</td>
+                  <td>Sur</td>
+                  <td>Carné</td>
+                  <td><span class="resultado ok" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;color:var(--text);background:linear-gradient(90deg, rgba(34,197,94,0.06), rgba(34,197,94,0.02));border-left:4px solid rgba(34,197,94,0.9);">Autorizado</span></td>
+                </tr>
+                <tr>
+                  <td>23/11/2025</td>
+                  <td>07:45 PM</td>
+                  <td>Norte</td>
+                  <td>Manual</td>
+                  <td><span class="resultado error" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;color:var(--text);background:linear-gradient(90deg, rgba(239,68,68,0.06), rgba(239,68,68,0.02));border-left:4px solid rgba(239,68,68,0.9);">Denegado</span></td>
+                </tr>
+                <tr>
+                  <td>22/11/2025</td>
+                  <td>09:03 AM</td>
+                  <td>Sur</td>
+                  <td>Invitado</td>
+                  <td><span class="resultado warn" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;color:var(--text);background:linear-gradient(90deg, rgba(245,158,11,0.06), rgba(245,158,11,0.02));border-left:4px solid rgba(245,158,11,0.9);">Requiere verificación</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Paginación simple -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:12px;flex-wrap:wrap;">
+            <div style="color:var(--muted);font-size:13px;">Mostrando 1–3 de 23 registros</div>
+            <div style="display:flex;gap:8px;">
+              <button style="background:transparent;border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:8px;cursor:pointer;">« Anterior</button>
+              <button style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:6px 10px;border-radius:8px;cursor:pointer;">Siguiente »</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modulo  Control de Accesos Invitados-->
+
+ <!-- Modulo Control de Accesos Invitados -->
+<section class="panel" id="moduloInvitados" style="display:none;">
+  <h2>Control de Accesos Invitados</h2>
+
+  <!-- Barra superior: búsqueda y filtros -->
+  <div class="search-bar" style="margin-top:8px;">
+    <span class="badge">Invitados</span>
+    <input id="inv_buscar" type="text" placeholder="Buscar por nombre, ID, socio..." />
+    <button onclick="inv_filtrar()">Buscar</button>
+    <button onclick="inv_resetFiltro()" style="background:transparent;border:1px solid var(--border);color:var(--text);padding:8px;border-radius:8px;margin-left:8px;">Limpiar</button>
+  </div>
+
+  <!-- Acciones principales y resumen -->
+  <div class="cards" style="margin-top:12px;">
+    <div class="card">
+      <h3>Registrar invitado</h3>
+      <div class="resultado">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <input id="inv_nombre" type="text" placeholder="Nombre invitado" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" />
+          <input id="inv_doc" type="text" placeholder="Cédula / Pasaporte" style="width:180px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" />
+          <input id="inv_socio" type="text" placeholder="Socio responsable (ID)" style="width:200px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" />
+          <select id="inv_origen" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)">
+            <option value="app">App del socio</option>
+            <option value="caseta">Registro presencial</option>
+            <option value="servicio">Llamada / Correo</option>
+          </select>
+          <button onclick="inv_registrar()" type="button" style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;">Registrar</button>
+        </div>
+        <div id="inv_msgRegistro" style="margin-top:8px;color:var(--muted);font-size:13px;"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Acciones rápidas</h3>
+      <div class="resultado">
+        <p>
+          <button onclick="inv_generarDemo()" style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;">Generar pase demo</button>
+          <button onclick="inv_cancelarPrompt()" style="background:transparent;border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;cursor:pointer;margin-left:8px;">Cancelar pase</button>
+        </p>
+        <p style="font-size:13px;color:var(--muted);margin-top:8px;">Las acciones son visuales; conecta con tus endpoints para persistencia real.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Resumen</h3>
+      <div class="resultado">
+        <p id="inv_stats" style="font-size:13px;color:var(--muted)">Invitados: 0 • Pases activos: 0 • Intentos fallidos: 0</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabla de pases -->
+  <h2 style="margin-top:18px;">Pases de invitados</h2>
+  <div class="resultado">
+    <h3>Listado</h3>
+    <div style="overflow:auto">
+      <table class="table" id="inv_tabla">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Documento</th>
+            <th>Socio</th>
+            <th>Origen</th>
+            <th>QR</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- filas dinámicas -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Paginación simple -->
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:12px;flex-wrap:wrap;">
+      <div style="color:var(--muted);font-size:13px;" id="inv_txtMostrando">Mostrando 0 registros</div>
+      <div style="display:flex;gap:8px;">
+        <button onclick="inv_prevPage()" style="background:transparent;border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:8px;cursor:pointer;">« Anterior</button>
+        <button onclick="inv_nextPage()" style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:6px 10px;border-radius:8px;cursor:pointer;">Siguiente »</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bitácora y validación -->
+  <h2 style="margin-top:22px;">Bitácora y validación</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Bitácora</h3>
+      <div class="bitacora" id="inv_bitacora"></div>
+    </div>
+
+    <div class="card">
+      <h3>Validar QR (simulación)</h3>
+      <div class="resultado">
+        <div style="display:flex;gap:8px;align-items:center;">
+          <input id="inv_scan" type="text" placeholder="Pegar código QR o ID" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)"/>
+          <button onclick="inv_validarQR()" style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;">Escanear</button>
+        </div>
+        <div id="inv_msgScan" style="margin-top:8px;color:var(--muted);font-size:13px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- módulo Invitados (funcionalidad) -->
+<script>
+  // Datos y estado local
+  const inv_invitados = []; // {id,nombre,doc,socio,origen,qr,estado,creado,usado,vencimiento}
+  const inv_bit = []; // {ts,mensaje}
+  let inv_nextId = 1;
+  let inv_page = 0, inv_pageSize = 8;
+
+  // Simulación de estado de socios
+  const inv_sociosMock = {
+    '1-0001': {estado: 'activo'},
+    '1-0002': {estado: 'moroso'},
+    '1001': {estado: 'activo'}
+  };
+
+  // Utilidades
+  function inv_pushBit(msg){
+    const ts = new Date().toLocaleString();
+    inv_bit.unshift({ts, mensaje: msg});
+    inv_renderBitacora();
+    inv_actualizarResumen();
+  }
+
+  function inv_renderBitacora(){
+    const el = document.getElementById('inv_bitacora');
+    if(!el) return;
+    el.innerHTML = '';
+    inv_bit.slice(0,50).forEach(e => {
+      const d = document.createElement('div');
+      d.textContent = `[${e.ts}] ${e.mensaje}`;
+      el.appendChild(d);
+    });
+  }
+
+  function inv_estadoBadge(estado){
+    if(estado === 'activo') return '<span class="resultado ok" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Autorizado</span>';
+    if(estado === 'cancelado') return '<span class="resultado warn" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Cancelado</span>';
+    if(estado === 'usado') return '<span class="resultado error" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Usado</span>';
+    if(estado === 'vencido') return '<span class="resultado error" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Vencido</span>';
+    if(estado === 'rechazado') return '<span class="resultado error" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Rechazado</span>';
+    return `<span style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">${estado}</span>`;
+  }
+
+  function inv_actualizarResumen(){
+    const total = inv_invitados.length;
+    const activos = inv_invitados.filter(i => i.estado === 'activo').length;
+    const fallidos = inv_bit.filter(e => /rechaz|denegad|vencid/i.test(e.mensaje)).length;
+    const statsEl = document.getElementById('inv_stats');
+    const txtMostrando = document.getElementById('inv_txtMostrando');
+    if(statsEl) statsEl.textContent = `Invitados: ${total} • Pases activos: ${activos} • Intentos fallidos: ${fallidos}`;
+    if(txtMostrando) txtMostrando.textContent = `Mostrando ${Math.min(total, inv_pageSize)} de ${total} registros`;
+  }
+
+  // Render tabla
+  function inv_renderTabla(){
+    const tbody = document.querySelector('#inv_tabla tbody');
+    if(!tbody) return;
+    tbody.innerHTML = '';
+    const start = inv_page * inv_pageSize;
+    const pageItems = inv_invitados.slice(start, start + inv_pageSize);
+    pageItems.forEach(item => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${item.id}</td>
+        <td>${item.nombre}</td>
+        <td>${item.doc || ''}</td>
+        <td>${item.socio || ''}</td>
+        <td>${item.origen}</td>
+        <td>${item.qr ? item.qr : '-'}</td>
+        <td>${inv_estadoBadge(item.estado)}</td>
+        <td>
+          <button onclick="inv_ver(${item.id})" style="padding:6px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text);">Ver</button>
+          <button onclick="inv_cancelar(${item.id})" style="padding:6px;border-radius:6px;margin-left:6px;background:transparent;border:1px solid var(--border);color:var(--text);">Cancelar</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+    inv_actualizarResumen();
+  }
+
+  // Registro (app/caseta/servicio)
+  function inv_registrar(){
+    const nombreEl = document.getElementById('inv_nombre');
+    const docEl = document.getElementById('inv_doc');
+    const socioEl = document.getElementById('inv_socio');
+    const origenEl = document.getElementById('inv_origen');
+    const msgEl = document.getElementById('inv_msgRegistro');
+    if(!nombreEl || !socioEl || !origenEl || !msgEl) return;
+
+    const nombre = nombreEl.value.trim();
+    const doc = docEl.value.trim();
+    const socio = socioEl.value.trim();
+    const origen = origenEl.value;
+
+    msgEl.textContent = '';
+    if(!nombre || !socio){
+      msgEl.textContent = 'Nombre y socio responsable son obligatorios.';
+      return;
+    }
+
+    const socioInfo = inv_sociosMock[socio] || {estado: 'no_encontrado'};
+    if(socioInfo.estado === 'moroso'){
+      msgEl.textContent = 'Registro no permitido – socio con impedimentos';
+      inv_pushBit(`Intento de registro rechazado — Socio ${socio} con impedimentos — Invitado: ${nombre}`);
+      return;
+    }
+    if(socioInfo.estado === 'no_encontrado'){
+      msgEl.textContent = 'Socio no encontrado';
+      inv_pushBit(`Intento de registro rechazado — Socio ${socio} no encontrado — Invitado: ${nombre}`);
+      return;
+    }
+
+    // Generar registro y QR
+    const id = inv_nextId++;
+    const qr = `QR-${Date.now().toString(36)}-${id}`;
+    const nuevo = {
+      id,
+      nombre,
+      doc,
+      socio,
+      origen,
+      qr,
+      estado: 'activo',
+      creado: new Date().toISOString(),
+      usado: false,
+      vencimiento: Date.now() + 1000 * 60 * 60 * 6 // 6 horas
+    };
+    inv_invitados.unshift(nuevo);
+    inv_pushBit(`Pase generado — Invitado: ${nombre} — Socio: ${socio} — ID:${id}`);
+    msgEl.textContent = `Invitado registrado. Pase generado (ID ${id}).`;
+    inv_renderTabla();
+    // limpiar inputs mínimos
+    nombreEl.value = '';
+    docEl.value = '';
+  }
+
+  // Generar demo
+  function inv_generarDemo(){
+    document.getElementById('inv_nombre').value = 'Invitado Demo';
+    document.getElementById('inv_doc').value = '00000000';
+    document.getElementById('inv_socio').value = '1-0001';
+    document.getElementById('inv_origen').value = 'app';
+    inv_registrar();
+  }
+
+  // Cancelar pase
+  function inv_cancelarPrompt(){
+    const id = prompt('Ingrese ID del pase a cancelar:');
+    if(!id) return;
+    inv_cancelar(Number(id));
+  }
+
+  function inv_cancelar(id){
+    const idx = inv_invitados.findIndex(i => i.id === id);
+    if(idx === -1){
+      alert('Pase no encontrado');
+      return;
+    }
+    const item = inv_invitados[idx];
+    if(item.usado){
+      alert('No se puede cancelar – pase ya utilizado');
+      inv_pushBit(`Intento de cancelación fallido — Pase ${id} ya utilizado`);
+      return;
+    }
+    item.estado = 'cancelado';
+    inv_pushBit(`Pase cancelado — ID:${id} — Invitado: ${item.nombre}`);
+    inv_renderTabla();
+  }
+
+  // Ver detalles
+  function inv_ver(id){
+    const item = inv_invitados.find(i => i.id === id);
+    if(!item){ alert('No encontrado'); return; }
+    alert(`ID: ${item.id}\nNombre: ${item.nombre}\nQR: ${item.qr}\nEstado: ${item.estado}\nSocio: ${item.socio}`);
+  }
+
+  // Validar QR (simulación de escaneo)
+  function inv_validarQR(){
+    const codeEl = document.getElementById('inv_scan');
+    const msg = document.getElementById('inv_msgScan');
+    if(!msg || !codeEl) return;
+    const code = codeEl.value.trim();
+    msg.textContent = '';
+    if(!code){ msg.textContent = 'Ingrese un código QR (ID) para escanear.'; return; }
+
+    const item = inv_invitados.find(i => i.qr === code || String(i.id) === code);
+    if(!item){
+      msg.textContent = 'QR no reconocido';
+      inv_pushBit(`Escaneo QR fallido — Código: ${code} — Resultado: no reconocido`);
+      return;
+    }
+
+    if(Date.now() > item.vencimiento){
+      msg.textContent = 'QR vencido — ingreso no permitido';
+      inv_pushBit(`Ingreso rechazado — QR vencido — Invitado: ${item.nombre} — ID:${item.id}`);
+      item.estado = 'vencido';
+      inv_renderTabla();
+      return;
+    }
+
+    if(item.usado){
+      msg.textContent = 'Pase ya utilizado';
+      inv_pushBit(`Ingreso rechazado — Pase ya utilizado — Invitado: ${item.nombre} — ID:${item.id}`);
+      item.estado = 'usado';
+      inv_renderTabla();
+      return;
+    }
+
+    const socioInfo = inv_sociosMock[item.socio] || {estado: 'no_encontrado'};
+    if(socioInfo.estado === 'moroso'){
+      msg.textContent = 'Invitado no permitido – socio moroso';
+      inv_pushBit(`Ingreso rechazado — Socio moroso — Invitado: ${item.nombre} — ID:${item.id}`);
+      item.estado = 'rechazado';
+      inv_renderTabla();
+      return;
+    }
+    if(socioInfo.estado === 'no_encontrado'){
+      msg.textContent = 'Socio no encontrado';
+      inv_pushBit(`Ingreso rechazado — Socio no encontrado — Invitado: ${item.nombre} — ID:${item.id}`);
+      item.estado = 'rechazado';
+      inv_renderTabla();
+      return;
+    }
+
+    // Aprobado
+    item.usado = true;
+    item.estado = 'usado';
+    inv_pushBit(`Ingreso autorizado — Invitado: ${item.nombre} — ID:${item.id} — Caseta: Norte`);
+    msg.textContent = 'Ingreso autorizado';
+    inv_renderTabla();
+  }
+
+  // Filtrado y paginación
+  function inv_filtrar(){
+    const q = document.getElementById('inv_buscar').value.trim().toLowerCase();
+    if(!q){ inv_renderTabla(); return; }
+    const tbody = document.querySelector('#inv_tabla tbody');
+    if(!tbody) return;
+    tbody.innerHTML = '';
+    const filtrados = inv_invitados.filter(i =>
+      String(i.id).includes(q) ||
+      (i.nombre && i.nombre.toLowerCase().includes(q)) ||
+      (i.socio && i.socio.toLowerCase().includes(q)) ||
+      (i.doc && i.doc.toLowerCase().includes(q))
+    );
+    filtrados.slice(0, inv_pageSize).forEach(item => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${item.id}</td>
+        <td>${item.nombre}</td>
+        <td>${item.doc || ''}</td>
+        <td>${item.socio || ''}</td>
+        <td>${item.origen}</td>
+        <td>${item.qr ? item.qr : '-'}</td>
+        <td>${inv_estadoBadge(item.estado)}</td>
+        <td>
+          <button onclick="inv_ver(${item.id})" style="padding:6px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text);">Ver</button>
+          <button onclick="inv_cancelar(${item.id})" style="padding:6px;border-radius:6px;margin-left:6px;background:transparent;border:1px solid var(--border);color:var(--text);">Cancelar</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+    document.getElementById('inv_txtMostrando').textContent = `Mostrando ${filtrados.length > inv_pageSize ? inv_pageSize : filtrados.length} de ${filtrados.length} registros`;
+  }
+
+  function inv_resetFiltro(){
+    const el = document.getElementById('inv_buscar');
+    if(el) el.value = '';
+    inv_renderTabla();
+  }
+
+  function inv_nextPage(){ inv_page++; inv_renderTabla(); }
+  function inv_prevPage(){ if(inv_page>0) inv_page--; inv_renderTabla(); }
+
+  // Inicialización demo 
+  (function inv_initDemo(){
+    inv_invitados.push({
+      id: inv_nextId++,
+      nombre: 'Juan P.',
+      doc: '101010101',
+      socio: '1-0001',
+      origen: 'app',
+      qr: `QR-demo-1`,
+      estado: 'activo',
+      creado: new Date().toISOString(),
+      usado: false,
+      vencimiento: Date.now() + 1000*60*60*4
+    });
+    inv_invitados.push({
+      id: inv_nextId++,
+      nombre: 'María R.',
+      doc: '202020202',
+      socio: '1-0002',
+      origen: 'caseta',
+      qr: `QR-demo-2`,
+      estado: 'activo',
+      creado: new Date().toISOString(),
+      usado: false,
+      vencimiento: Date.now() - 1000*60*60 // vencido
+    });
+    inv_pushBit('[Demo] Pases iniciales cargados');
+    inv_renderTabla();
+  })();
+</script>
+
+
+<!--Fin de Modulo 2-->
+
+<!--Modulo Control de Accesos Proveedores-->
+
+      <!-- Modulo Control de Accesos Proveedores -->
+
+      <section class="panel" id="moduloProveedores" style="display:none;">
+        <h2>Control de Accesos Proveedores</h2>
+
+        <!-- Barra superior: búsqueda y filtros -->
+        <div class="search-bar" style="margin-top:8px;">
+          <span class="badge">Proveedores</span>
+          <input id="prov_buscar" type="text" placeholder="Buscar por ID, empresa, placa o colaborador..." />
+          <button onclick="prov_filtrar()">Buscar</button>
+          <button onclick="prov_resetFiltro()" style="background:transparent;border:1px solid var(--border);color:var(--text);padding:8px;border-radius:8px;margin-left:8px;">Limpiar</button>
+        </div>
+
+        <!-- Acciones principales -->
+        <div class="cards" style="margin-top:12px;">
+          <div class="card">
+            <h3>Registrar / Generar pase</h3>
+            <div class="resultado">
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <input id="prov_nombre" type="text" placeholder="Nombre proveedor" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)"/>
+                <input id="prov_empresa" type="text" placeholder="Empresa" style="width:220px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)"/>
+                <input id="prov_contacto" type="text" placeholder="Colaborador solicitante (ID)" style="width:200px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)"/>
+                <input id="prov_motivo" type="text" placeholder="Motivo / Servicio" style="width:220px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)"/>
+                <input id="prov_placa" type="text" placeholder="Placa (opcional)" style="width:160px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)"/>
+                <input id="prov_fecha" type="datetime-local" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)"/>
+                <button onclick="prov_generarPase()" style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;">Generar pase</button>
+              </div>
+              <div id="prov_msgRegistro" style="margin-top:8px;color:var(--muted);font-size:13px;"></div>
+              <div style="margin-top:8px;font-size:13px;color:var(--muted);">Nota: el sistema valida si existe autorización previa (simulada).</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Acciones rápidas</h3>
+            <div class="resultado">
+              <p>
+                <button onclick="prov_generarDemo()" style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;">Generar pase demo</button>
+                <button onclick="prov_confirmarManual()" style="background:transparent;border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;cursor:pointer;margin-left:8px;">Confirmar proveedor</button>
+              </p>
+              <p style="font-size:13px;color:var(--muted);margin-top:8px;">Las acciones son visuales; conecta con tus endpoints para persistencia real.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Resumen</h3>
+            <div class="resultado">
+              <p id="prov_stats" style="font-size:13px;color:var(--muted)">Pases: 0 • Activos: 0 • Intentos fallidos: 0</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla de pases -->
+        <h2 style="margin-top:18px;">Pases de proveedores</h2>
+        <div class="resultado">
+          <h3>Listado</h3>
+          <div style="overflow:auto">
+            <table class="table" id="prov_tabla">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Proveedor</th>
+                  <th>Empresa</th>
+                  <th>Contacto</th>
+                  <th>Placa</th>
+                  <th>Vigencia</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- filas dinámicas -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Paginación simple -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:12px;flex-wrap:wrap;">
+            <div style="color:var(--muted);font-size:13px;" id="prov_txtMostrando">Mostrando 0 registros</div>
+            <div style="display:flex;gap:8px;">
+              <button onclick="prov_prevPage()" style="background:transparent;border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:8px;cursor:pointer;">« Anterior</button>
+              <button onclick="prov_nextPage()" style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:6px 10px;border-radius:8px;cursor:pointer;">Siguiente »</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bitácora y validación -->
+        <h2 style="margin-top:22px;">Bitácora y validación</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Bitácora</h3>
+            <div class="bitacora" id="prov_bitacora"></div>
+          </div>
+
+          <div class="card">
+            <h3>Validar pase / Registrar ingreso</h3>
+            <div class="resultado">
+              <div style="display:flex;gap:8px;align-items:center;">
+                <input id="prov_scan" type="text" placeholder="Pegar código de pase o ID" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)"/>
+                <input id="prov_placa_validar" type="text" placeholder="Placa (si aplica)" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)"/>
+                <button onclick="prov_validarPase()" style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;">Validar</button>
+              </div>
+              <div id="prov_msgScan" style="margin-top:8px;color:var(--muted);font-size:13px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Historial / Consulta -->
+        <h2 style="margin-top:22px;">Consulta historial de proveedores</h2>
+        <div class="resultado">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <input id="prov_filtroEmpresa" type="text" placeholder="Empresa" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)"/>
+            <input id="prov_filtroContacto" type="text" placeholder="Colaborador solicitante" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)"/>
+            <input id="prov_filtroFechaDesde" type="date" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)"/>
+            <input id="prov_filtroFechaHasta" type="date" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)"/>
+            <button onclick="prov_consultarHistorial()" style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;">Consultar</button>
+          </div>
+          <div id="prov_histResultado" style="margin-top:12px;color:var(--muted);font-size:13px;"></div>
+        </div>
+      </section>
+
+<script>
+
+
+/* Módulo Proveedores (prefijo prov_) */
+const prov_pases = []; // {id, proveedor, empresa, contacto, placa, vigenciaTs, estado, creado, usado, autorizadoPor}
+const prov_bit = []; // {ts, mensaje}
+let prov_nextId = 1;
+let prov_page = 0, prov_pageSize = 8;
+
+// Simulación de autorizaciones previas 
+const prov_autorizacionesMock = {
+  // clave: empresa|contacto -> autorización vigente
+  'ACME|1001': {autorizado: true},
+  'SERVICIOS S.A.|2002': {autorizado: false}
+};
+
+function prov_pushBit(msg){
+  const ts = new Date().toLocaleString();
+  prov_bit.unshift({ts, mensaje: msg});
+  prov_renderBitacora();
+  prov_actualizarResumen();
+}
+
+function prov_renderBitacora(){
+  const el = document.getElementById('prov_bitacora');
+  if(!el) return;
+  el.innerHTML = '';
+  prov_bit.slice(0,50).forEach(e => {
+    const d = document.createElement('div');
+    d.textContent = `[${e.ts}] ${e.mensaje}`;
+    el.appendChild(d);
+  });
+}
+
+function prov_estadoBadge(estado){
+  if(estado === 'autorizado') return '<span class="resultado ok" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Autorizado</span>';
+  if(estado === 'vencido') return '<span class="resultado error" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Vencido</span>';
+  if(estado === 'utilizado') return '<span class="resultado warn" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Utilizado</span>';
+  if(estado === 'rechazado') return '<span class="resultado error" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Rechazado</span>';
+  return `<span style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">${estado}</span>`;
+}
+
+function prov_actualizarResumen(){
+  const total = prov_pases.length;
+  const activos = prov_pases.filter(p => p.estado === 'autorizado').length;
+  const fallidos = prov_bit.filter(e => /rechaz|vencid|no autorizado/i.test(e.mensaje)).length;
+  const statsEl = document.getElementById('prov_stats');
+  const txtMostrando = document.getElementById('prov_txtMostrando');
+  if(statsEl) statsEl.textContent = `Pases: ${total} • Activos: ${activos} • Intentos fallidos: ${fallidos}`;
+  if(txtMostrando) txtMostrando.textContent = `Mostrando ${Math.min(total, prov_pageSize)} de ${total} registros`;
+}
+
+/* Render tabla */
+function prov_renderTabla(){
+  const tbody = document.querySelector('#prov_tabla tbody');
+  if(!tbody) return;
+  tbody.innerHTML = '';
+  const start = prov_page * prov_pageSize;
+  const pageItems = prov_pases.slice(start, start + prov_pageSize);
+  pageItems.forEach(item => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${item.id}</td>
+      <td>${item.proveedor}</td>
+      <td>${item.empresa}</td>
+      <td>${item.contacto}</td>
+      <td>${item.placa || '-'}</td>
+      <td>${new Date(item.vigenciaTs).toLocaleString()}</td>
+      <td>${prov_estadoBadge(item.estado)}</td>
+      <td>
+        <button class="prov-ver" data-id="${item.id}" style="padding:6px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text);">Ver</button>
+        <button class="prov-cancel" data-id="${item.id}" style="padding:6px;border-radius:6px;margin-left:6px;background:transparent;border:1px solid var(--border);color:var(--text);">Anular</button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+  prov_actualizarResumen();
+}
+
+/* Delegación para botones dinámicos */
+document.addEventListener('click', function(e){
+  const ver = e.target.closest('.prov-ver');
+  if(ver){ prov_ver(Number(ver.dataset.id)); return; }
+  const cancel = e.target.closest('.prov-cancel');
+  if(cancel){ prov_anular(Number(cancel.dataset.id)); return; }
+});
+
+/* Generar pase */
+function prov_generarPase(){
+  const proveedor = document.getElementById('prov_nombre').value.trim();
+  const empresa = document.getElementById('prov_empresa').value.trim();
+  const contacto = document.getElementById('prov_contacto').value.trim();
+  const motivo = document.getElementById('prov_motivo').value.trim();
+  const placa = document.getElementById('prov_placa').value.trim();
+  const fechaVal = document.getElementById('prov_fecha').value;
+  const msgEl = document.getElementById('prov_msgRegistro');
+  msgEl.textContent = '';
+
+  // Validaciones básicas
+  if(!proveedor || !empresa || !contacto || !motivo || !fechaVal){
+    msgEl.textContent = 'Información incompleta — empresa, contacto, motivo y fecha son obligatorios.';
+    return;
+  }
+
+  // Simular verificación de autorización previa
+  const key = `${empresa}|${contacto}`;
+  const auth = prov_autorizacionesMock[key];
+  if(!auth || !auth.autorizado){
+    msgEl.textContent = 'Proveedor no autorizado';
+    prov_pushBit(`Intento registro rechazado — ${proveedor} / ${empresa} — sin autorización`);
+    return;
+  }
+
+  // Crear pase único
+  const id = prov_nextId++;
+  const vigenciaTs = new Date(fechaVal).getTime();
+  const pase = {
+    id,
+    proveedor,
+    empresa,
+    contacto,
+    placa: placa || null,
+    vigenciaTs,
+    estado: 'autorizado',
+    creado: new Date().toISOString(),
+    usado: false,
+    autorizadoPor: contacto
+  };
+  prov_pases.unshift(pase);
+  prov_pushBit(`Pase generado — Proveedor: ${proveedor} — Empresa: ${empresa} — ID:${id}`);
+  msgEl.textContent = `Pase generado (ID ${id}).`;
+  prov_renderTabla();
+
+  // limpiar campos
+  document.getElementById('prov_nombre').value = '';
+  document.getElementById('prov_empresa').value = '';
+  document.getElementById('prov_motivo').value = '';
+  document.getElementById('prov_placa').value = '';
+  document.getElementById('prov_fecha').value = '';
+}
+
+/* Generar demo */
+function prov_generarDemo(){
+  // demo con autorización simulada: ensure mock has key
+  prov_autorizacionesMock['ACME|1001'] = {autorizado:true};
+  document.getElementById('prov_nombre').value = 'Proveedor Demo';
+  document.getElementById('prov_empresa').value = 'ACME';
+  document.getElementById('prov_contacto').value = '1001';
+  document.getElementById('prov_motivo').value = 'Mantenimiento';
+  document.getElementById('prov_placa').value = 'ABC-123';
+  // set vigencia a ahora + 2 horas
+  const dt = new Date(Date.now() + 1000*60*60*2);
+  document.getElementById('prov_fecha').value = dt.toISOString().slice(0,16);
+  prov_generarPase();
+}
+
+/* Confirmación manual por colaborador solicitante (simulada) */
+function prov_confirmarManual(){
+  const id = prompt('Ingrese ID del pase para confirmar manualmente:');
+  if(!id) return;
+  const pase = prov_pases.find(p => p.id === Number(id));
+  if(!pase){ alert('Pase no encontrado'); return; }
+  // Simular llamada y confirmación
+  const confirmado = confirm(`Simular confirmación del colaborador ${pase.contacto} para el pase ${id}?`);
+  if(confirmado){
+    prov_pushBit(`Confirmación manual recibida — Pase ${id} — Proveedor: ${pase.proveedor}`);
+    alert('Confirmación registrada. Ingreso autorizado cuando valide en caseta.');
+  } else {
+    prov_pushBit(`Confirmación manual NEGADA — Pase ${id}`);
+    alert('Confirmación negada. Pase marcado como rechazado.');
+    pase.estado = 'rechazado';
+    prov_renderTabla();
+  }
+}
+
+/* Validar pase en caseta */
+function prov_validarPase(){
+  const code = document.getElementById('prov_scan').value.trim();
+  const placaInput = document.getElementById('prov_placa_validar').value.trim();
+  const msg = document.getElementById('prov_msgScan');
+  msg.textContent = '';
+  if(!code){ msg.textContent = 'Ingrese ID o código del pase.'; return; }
+
+  const pase = prov_pases.find(p => String(p.id) === code);
+  if(!pase){
+    msg.textContent = 'Pase no reconocido';
+    prov_pushBit(`Validación fallida — Pase ${code} no reconocido`);
+    return;
+  }
+
+  // Verificar vigencia
+  const now = Date.now();
+  if(now > pase.vigenciaTs){
+    msg.textContent = 'Pase vencido';
+    pase.estado = 'vencido';
+    prov_pushBit(`Ingreso rechazado — Pase vencido — ID:${pase.id} — Proveedor: ${pase.proveedor}`);
+    prov_renderTabla();
+    return;
+  }
+
+  // Verificar uso único
+  if(pase.usado){
+    msg.textContent = 'Pase ya utilizado';
+    prov_pushBit(`Ingreso rechazado — Pase ya utilizado — ID:${pase.id}`);
+    pase.estado = 'utilizado';
+    prov_renderTabla();
+    return;
+  }
+
+  // Verificar placa si existe en autorización
+  if(pase.placa && placaInput && pase.placa.toLowerCase() !== placaInput.toLowerCase()){
+    msg.textContent = 'Placa no coincide con la autorización';
+    prov_pushBit(`Ingreso rechazado — Placa no coincide — Pase:${pase.id} — Esperada:${pase.placa} — Ingresada:${placaInput}`);
+    return;
+  }
+
+  // Simular confirmación con colaborador solicitante si es necesario
+
+  pase.usado = true;
+  pase.estado = 'utilizado';
+  prov_pushBit(`Ingreso autorizado — Pase:${pase.id} — Proveedor:${pase.proveedor} — Empresa:${pase.empresa}`);
+  msg.textContent = 'Ingreso autorizado';
+  prov_renderTabla();
+}
+
+/* Anular pase */
+function prov_anular(id){
+  const idx = prov_pases.findIndex(p => p.id === id);
+  if(idx === -1){ alert('Pase no encontrado'); return; }
+  const pase = prov_pases[idx];
+  pase.estado = 'rechazado';
+  prov_pushBit(`Pase anulado — ID:${id} — Proveedor:${pase.proveedor}`);
+  prov_renderTabla();
+}
+
+/* Ver detalles */
+function prov_ver(id){
+  const pase = prov_pases.find(p => p.id === id);
+  if(!pase){ alert('No encontrado'); return; }
+  alert(`ID: ${pase.id}\nProveedor: ${pase.proveedor}\nEmpresa: ${pase.empresa}\nContacto: ${pase.contacto}\nPlaca: ${pase.placa || '-'}\nVigencia: ${new Date(pase.vigenciaTs).toLocaleString()}\nEstado: ${pase.estado}`);
+}
+
+/* Filtrado y paginación */
+function prov_filtrar(){
+  const q = document.getElementById('prov_buscar').value.trim().toLowerCase();
+  if(!q){ prov_renderTabla(); return; }
+  const tbody = document.querySelector('#prov_tabla tbody');
+  if(!tbody) return;
+  tbody.innerHTML = '';
+  const filtrados = prov_pases.filter(p =>
+    String(p.id).includes(q) ||
+    (p.proveedor && p.proveedor.toLowerCase().includes(q)) ||
+    (p.empresa && p.empresa.toLowerCase().includes(q)) ||
+    (p.contacto && p.contacto.toLowerCase().includes(q)) ||
+    (p.placa && p.placa.toLowerCase().includes(q))
+  );
+  filtrados.slice(0, prov_pageSize).forEach(item => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${item.id}</td>
+      <td>${item.proveedor}</td>
+      <td>${item.empresa}</td>
+      <td>${item.contacto}</td>
+      <td>${item.placa || '-'}</td>
+      <td>${new Date(item.vigenciaTs).toLocaleString()}</td>
+      <td>${prov_estadoBadge(item.estado)}</td>
+      <td>
+        <button class="prov-ver" data-id="${item.id}" style="padding:6px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text);">Ver</button>
+        <button class="prov-cancel" data-id="${item.id}" style="padding:6px;border-radius:6px;margin-left:6px;background:transparent;border:1px solid var(--border);color:var(--text);">Anular</button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+  document.getElementById('prov_txtMostrando').textContent = `Mostrando ${filtrados.length > prov_pageSize ? prov_pageSize : filtrados.length} de ${filtrados.length} registros`;
+}
+
+function prov_resetFiltro(){
+  const el = document.getElementById('prov_buscar');
+  if(el) el.value = '';
+  prov_renderTabla();
+}
+function prov_nextPage(){ prov_page++; prov_renderTabla(); }
+function prov_prevPage(){ if(prov_page>0) prov_page--; prov_renderTabla(); }
+
+/* Consulta historial (filtro simple en memoria) */
+function prov_consultarHistorial(){
+  const empresa = document.getElementById('prov_filtroEmpresa').value.trim().toLowerCase();
+  const contacto = document.getElementById('prov_filtroContacto').value.trim().toLowerCase();
+  const desde = document.getElementById('prov_filtroFechaDesde').value;
+  const hasta = document.getElementById('prov_filtroFechaHasta').value;
+  const resultadoEl = document.getElementById('prov_histResultado');
+  resultadoEl.textContent = '';
+
+  const filtrados = prov_pases.filter(p => {
+    if(empresa && (!p.empresa || !p.empresa.toLowerCase().includes(empresa))) return false;
+    if(contacto && (!p.contacto || !p.contacto.toLowerCase().includes(contacto))) return false;
+    if(desde){
+      const desdeTs = new Date(desde).getTime();
+      if(p.vigenciaTs < desdeTs) return false;
+    }
+    if(hasta){
+      const hastaTs = new Date(hasta).getTime() + 24*60*60*1000 - 1;
+      if(p.vigenciaTs > hastaTs) return false;
+    }
+    return true;
+  });
+
+  if(filtrados.length === 0){
+    resultadoEl.textContent = 'No existen registros';
+    return;
+  }
+
+  // Mostrar resumen simple
+  const lines = filtrados.map(p => `${new Date(p.vigenciaTs).toLocaleDateString()} • ${p.empresa} • ${p.proveedor} • ${p.contacto} • Estado: ${p.estado}`);
+  resultadoEl.innerHTML = lines.join('<br>');
+}
+
+/* Inicialización demo */
+(function prov_initDemo(){
+  // Add a demo authorization and pase
+  prov_autorizacionesMock['ACME|1001'] = {autorizado:true};
+  prov_pases.push({
+    id: prov_nextId++,
+    proveedor: 'TIGO',
+    empresa: 'ACME',
+    contacto: '1001',
+    placa: 'ABC-123',
+    vigenciaTs: Date.now() + 1000*60*60*2,
+    estado: 'autorizado',
+    creado: new Date().toISOString(),
+    usado: false,
+    autorizadoPor: '1001'
+  });
+  prov_pushBit('[Demo] Pase de proveedor cargado');
+  prov_renderTabla();
+})();
+</script>
+
+<!--Fin de Modulo 3-->
+
+<!--Modulo Control de Accesos Invitados Externos-->
+
+      <section class="panel" id="moduloExternos" style="display:none;">
+  <h2>Control de Accesos Invitados Externos</h2>
+
+  <!-- Barra superior: búsqueda y filtros (visual) -->
+  <div class="search-bar" style="margin-top:8px;">
+    <span class="badge">Visitantes</span>
+    <input type="text" placeholder="Buscar por nombre, cédula, destino o empresa..." disabled />
+    <button style="opacity:.7;cursor:default;" disabled>Buscar</button>
+    <button style="background:transparent;border:1px solid var(--border);color:var(--text);padding:8px;border-radius:8px;margin-left:8px;opacity:.7;cursor:default;" disabled>Limpiar</button>
+  </div>
+
+  <!-- Registro manual / grupo / resumen (visual) -->
+  <div class="cards" style="margin-top:12px;">
+    <div class="card">
+      <h3>Registrar visitante externo</h3>
+      <div class="resultado">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <input type="text" placeholder="Nombre completo" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled/>
+          <input type="text" placeholder="Cédula / Pasaporte (opcional)" style="width:200px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled/>
+          <input type="text" placeholder="Destino (área del Club)" style="width:220px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled/>
+          <select style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled>
+            <option>Seleccione motivo</option>
+            <option>Cita</option>
+            <option>Trámite</option>
+            <option>Entrega</option>
+            <option>Visita</option>
+          </select>
+          <input type="text" placeholder="Empresa (si aplica)" style="width:200px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled/>
+          <input type="number" min="1" placeholder="Personas (grupo)" style="width:120px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled/>
+          <button style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 12px;border-radius:8px;cursor:default;opacity:.8;" disabled>Registrar</button>
+        </div>
+        <div style="margin-top:8px;color:var(--muted);font-size:13px;">Registro manual en caseta (visual).</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Acciones rápidas</h3>
+      <div class="resultado">
+        <p>
+          <button style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 10px;border-radius:8px;cursor:default;opacity:.8;" disabled>Cargar demo</button>
+          <button style="background:transparent;border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;cursor:default;margin-left:8px;opacity:.8;" disabled>Confirmar visitante</button>
+        </p>
+        <p style="font-size:13px;color:var(--muted);margin-top:8px;">Interfaz visual para caseta. Funcionalidad deshabilitada en esta vista.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Resumen</h3>
+      <div class="resultado">
+        <p style="font-size:13px;color:var(--muted)">Visitantes: 2 • Pendientes: 1 • Intentos fallidos: 0</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabla de visitantes (visual) -->
+  <h2 style="margin-top:18px;">Visitantes registrados</h2>
+  <div class="resultado">
+    <h3>Listado</h3>
+    <div style="overflow:auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th><th>Nombre</th><th>Cédula</th><th>Destino</th><th>Motivo</th><th>Empresa</th><th>Cant.</th><th>Estado</th><th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Carlos Técnico</td>
+            <td>12345678</td>
+            <td>Mantenimiento</td>
+            <td>Revisión</td>
+            <td>Técnicos S.A.</td>
+            <td>1</td>
+            <td><span class="resultado ok" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Autorizado</span></td>
+            <td>
+              <button style="padding:6px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text);cursor:default;" disabled>Ver</button>
+              <button style="padding:6px;border-radius:6px;margin-left:6px;background:transparent;border:1px solid var(--border);color:var(--text);cursor:default;" disabled>Reingreso</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>María Pérez</td>
+            <td>-</td>
+            <td>Oficinas</td>
+            <td>Entrega</td>
+            <td>Mensajería</td>
+            <td>1</td>
+            <td><span class="resultado warn" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Pendiente</span></td>
+            <td>
+              <button style="padding:6px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text);cursor:default;" disabled>Ver</button>
+              <button style="padding:6px;border-radius:6px;margin-left:6px;background:transparent;border:1px solid var(--border);color:var(--text);cursor:default;" disabled>Reingreso</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:12px;flex-wrap:wrap;">
+      <div style="color:var(--muted);font-size:13px;">Mostrando 1–2 de 2 registros</div>
+      <div style="display:flex;gap:8px;">
+        <button style="background:transparent;border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:8px;cursor:default;opacity:.7;" disabled>« Anterior</button>
+        <button style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:6px 10px;border-radius:8px;cursor:default;opacity:.7;" disabled>Siguiente »</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bitácora y verificación (visual) -->
+  <h2 style="margin-top:22px;">Bitácora y verificación</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Bitácora</h3>
+      <div class="bitacora" style="background:rgba(255,255,255,0.01);">
+        <div>[30/11/2025 09:00 AM] Visitante autorizado — Carlos Técnico — Mantenimiento</div>
+        <div>[30/11/2025 09:15 AM] Visitante registrado (pendiente) — María Pérez — Oficinas</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Verificar / Confirmar visitante</h3>
+      <div class="resultado">
+        <div style="display:flex;gap:8px;align-items:center;">
+          <input type="text" placeholder="Pegar ID de visitante" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled/>
+          <button style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 12px;border-radius:8px;cursor:default;opacity:.8;" disabled>Confirmar</button>
+          <button style="background:transparent;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:default;margin-left:8px;opacity:.8;" disabled>Denegar</button>
+        </div>
+        <div style="margin-top:8px;color:var(--muted);font-size:13px;">Acciones de verificación deshabilitadas en esta vista.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Historial / Consulta (visual) -->
+  <h2 style="margin-top:22px;">Consulta historial de visitantes</h2>
+  <div class="resultado">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <input type="text" placeholder="Destino" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled/>
+      <input type="text" placeholder="Motivo" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled/>
+      <input type="date" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled/>
+      <input type="date" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled/>
+      <button style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 12px;border-radius:8px;cursor:default;opacity:.8;" disabled>Consultar</button>
+    </div>
+  </div>
+</section>
+
+<!--Fin de Modulo 4-->
+
+<!--Modulo Control de Accesos Eventos-->
+
+      <section class="panel" id="moduloEventos" style="display:none;">
+  <h2>Control de Accesos Eventos</h2>
+
+  <!-- Barra superior: búsqueda y filtros (visual) -->
+  <div class="search-bar" style="margin-top:8px;">
+    <span class="badge">Eventos</span>
+    <input type="text" placeholder="Buscar por nombre, fecha o tipo..." disabled />
+    <button style="opacity:.7;cursor:default;" disabled>Buscar</button>
+    <button style="background:transparent;border:1px solid var(--border);color:var(--text);padding:8px;border-radius:8px;margin-left:8px;opacity:.7;cursor:default;" disabled>Limpiar</button>
+  </div>
+
+  <!-- Crear evento / lista / resumen (visual) -->
+  <div class="cards" style="margin-top:12px;">
+    <div class="card">
+      <h3>Crear evento</h3>
+      <div class="resultado">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <input type="text" placeholder="Nombre del evento" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled />
+          <input type="date" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled />
+          <input type="time" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled />
+          <input type="text" placeholder="Lugar" style="width:220px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled />
+          <input type="number" min="1" placeholder="Cupo máximo" style="width:160px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled />
+          <button style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 12px;border-radius:8px;cursor:default;opacity:.8;" disabled>Crear evento</button>
+        </div>
+        <div style="margin-top:8px;color:var(--muted);font-size:13px;">Interfaz visual para creación de eventos. Funcionalidad deshabilitada en esta vista.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Generar lista de participantes</h3>
+      <div class="resultado">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+          <select style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled>
+            <option>Seleccionar evento</option>
+          </select>
+          <button style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 10px;border-radius:8px;cursor:default;opacity:.8;" disabled>Generar lista</button>
+          <button style="background:transparent;border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;cursor:default;margin-left:8px;opacity:.8;" disabled>Exportar</button>
+        </div>
+        <div style="margin-top:8px;font-size:13px;color:var(--muted);">La lista se vincula al evento y muestra cupos disponibles.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Resumen</h3>
+      <div class="resultado">
+        <p style="font-size:13px;color:var(--muted)">Eventos: 3 • Participantes totales: 124 • Cupos disponibles: 18</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gestión de participantes (visual) -->
+  <h2 style="margin-top:18px;">Gestión de participantes</h2>
+  <div class="resultado">
+    <h3>Inscribir participante</h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <select style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled>
+        <option>Seleccionar evento</option>
+      </select>
+      <input type="text" placeholder="Nombre participante (socio o invitado)" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled />
+      <input type="text" placeholder="Cédula / ID" style="width:180px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled />
+      <input type="number" min="0" placeholder="Invitados del socio" style="width:160px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled />
+      <button style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 12px;border-radius:8px;cursor:default;opacity:.8;" disabled>Inscribir</button>
+    </div>
+
+    <div style="margin-top:12px;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Evento</th><th>Participante</th><th>Tipo</th><th>Estado</th><th>Asistencia</th><th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Torneo Golf Noviembre</td>
+            <td>Thomas Araya</td>
+            <td>Socio</td>
+            <td><span class="resultado ok" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Inscrito</span></td>
+            <td><span class="resultado ok" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Asistió</span></td>
+            <td>
+              <button style="padding:6px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text);cursor:default;" disabled>Ver</button>
+              <button style="padding:6px;border-radius:6px;margin-left:6px;background:transparent;border:1px solid var(--border);color:var(--text);cursor:default;" disabled>Cancelar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Taller Fotografía</td>
+            <td>María López</td>
+            <td>Invitado</td>
+            <td><span class="resultado ok" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Inscrito</span></td>
+            <td><span class="resultado warn" style="display:inline-block;padding:6px 8px;border-radius:6px;font-weight:600;">Pendiente</span></td>
+            <td>
+              <button style="padding:6px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text);cursor:default;" disabled>Ver</button>
+              <button style="padding:6px;border-radius:6px;margin-left:6px;background:transparent;border:1px solid var(--border);color:var(--text);cursor:default;" disabled>Cancelar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:12px;flex-wrap:wrap;">
+      <div style="color:var(--muted);font-size:13px;">Mostrando 1–2 de 2 registros</div>
+      <div style="display:flex;gap:8px;">
+        <button style="background:transparent;border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:8px;cursor:default;opacity:.7;" disabled>« Anterior</button>
+        <button style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:6px 10px;border-radius:8px;cursor:default;opacity:.7;" disabled>Siguiente »</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bitácora y reportes (visual) -->
+  <h2 style="margin-top:22px;">Bitácora y reportes</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Bitácora de eventos</h3>
+      <div class="bitacora" style="background:rgba(255,255,255,0.01);">
+        <div>[30/11/2025 08:00 AM] Evento creado — Torneo Golf Noviembre — Admin</div>
+        <div>[30/11/2025 08:15 AM] Participante inscrito — Thomas Araya — Torneo Golf Noviembre</div>
+        <div>[30/11/2025 09:00 AM] Asistencia registrada — Thomas Araya — Caseta Norte</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Generar reporte (visual)</h3>
+      <div class="resultado">
+        <p style="font-size:13px;color:var(--muted);">Exportar asistencia y listas por evento (PDF/Excel) — funcionalidad deshabilitada en esta vista.</p>
+        <div style="display:flex;gap:8px;margin-top:8px;">
+          <button style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 10px;border-radius:8px;cursor:default;opacity:.8;" disabled>Generar PDF</button>
+          <button style="background:transparent;border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:8px;cursor:default;opacity:.8;" disabled>Generar Excel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Consulta de listas (visual) -->
+  <h2 style="margin-top:22px;">Consulta de listas de eventos</h2>
+  <div class="resultado">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <input type="text" placeholder="Nombre del evento" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled />
+      <input type="date" style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled />
+      <select style="padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)" disabled>
+        <option>Tipo de evento</option>
+      </select>
+      <button style="background:linear-gradient(180deg,var(--accent), #0ea5d7);color:#04202a;border:none;padding:8px 12px;border-radius:8px;cursor:default;opacity:.8;" disabled>Consultar</button>
+    </div>
+    <div style="margin-top:12px;color:var(--muted);font-size:13px;">Vista visual de consulta de listas. Búsqueda y exportación deshabilitadas.</div>
+  </div>
+</section>
+
+<!--Fin de Modulo 5-->
+
+  </main>
+
+<footer class="site-footer">
+  <div class="footer-inner container">
+    <div class="footer-left">
+      <strong>Proyecto Ingresos Country</strong>
+      <div class="muted">Control de Ingresos Costa Rica Country Club S.A</div>
+    </div>
+
+    <div class="footer-center">
+      <nav class="footer-nav" aria-label="Enlaces del pie de página">
+        <a href="#" class="footer-link">Inicio</a>
+        <a href="#" class="footer-link">Módulos</a>
+        <a href="#" class="footer-link">Soporte</a>
+        <a href="#" class="footer-link">Privacidad</a>
+      </nav>
+    </div>
+
+    <div class="footer-right">
+      <div class="muted">Versión <span id="appVersion">v1.0.0</span></div>
+      <div class="muted">© <span id="currentYear"></span> Country Club S.A</div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script>
+  // Versión sencilla de mostrarModulo basada en el esqueleto del usuario
+  function mostrarModulo(modulo, elemento){
+    try{
+      console.debug('mostrarModulo llamado con:', modulo);
+      // Quitar resaltado previo
+      const items = document.querySelectorAll('#menuOpciones li');
+      items.forEach(li => li.classList.remove('active'));
+
+      // Resaltar el seleccionado
+      if(elemento && elemento.classList) elemento.classList.add('active');
+
+      // Ocultar todos los módulos: seleccionar secciones de tipo 'section.panel' que no sean el aside.menu
+      const modulos = document.querySelectorAll('section.panel:not(.menu)');
+      modulos.forEach(m => {
+        // Asegurarnos de que estén ocultos
+        m.style.display = 'none';
+      });
+
+      // Mostrar solo el módulo seleccionado
+      const id = 'modulo' + modulo.charAt(0).toUpperCase() + modulo.slice(1);
+      const seleccionado = document.getElementById(id);
+      if(seleccionado){
+        seleccionado.style.display = 'block';
+        // Forzar reflow y scroll opcional
+        void seleccionado.offsetWidth;
+        setTimeout(() => seleccionado.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+        console.debug('mostrarModulo: mostrado', id);
+      } else {
+        console.warn('mostrarModulo: no se encontró el módulo', id);
+      }
+    }catch(err){
+      console.error('mostrarModulo error:', err);
+    }
+  }
+
+  // Mostrar socios por defecto al cargar
+  document.addEventListener('DOMContentLoaded', () => {
+    const first = document.querySelector('#menuOpciones li');
+    if(first) first.click();
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "Sistema de Control de Ingreso | Country Club Costa Rica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid min-vh-100 bg-light">
+    <div class="row g-0">
+
+        <!-- SIDEBAR -->
+        <aside class="col-12 col-md-3 col-lg-2 bg-white border-end d-flex flex-column p-3">
+
+            <!-- LOGO -->
+            <div class="text-center mb-4">
+                <img src="~/assets/images/Logo Arbol Country Verde.png"
+                     alt="Country Club Costa Rica"
+                     class="img-fluid mb-2"
+                     style="max-width:70px;">
+                <h6 class="fw-bold mb-0" style="color: var(--cc-verde);">
+                    Country Club
+                </h6>
+                <small class="text-muted">Costa Rica</small>
+            </div>
+
+            <!-- MENU -->
+            <h6 class="text-uppercase text-muted small mb-2">Registrar ingreso</h6>
+            <div class="d-grid gap-2 mb-4">
+                <button class="btn btn-outline-success"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalSocio">
+                    Registrar ingreso de socio
+                </button>
+
+                <button class="btn btn-outline-success">Invitado</button>
+                <button class="btn btn-outline-success">Reciprocidad</button>
+                <button class="btn btn-outline-danger">Salida de socio</button>
+            </div>
+
+            <h6 class="text-uppercase text-muted small mb-2">Mantenimiento</h6>
+            <div class="d-grid gap-2 mb-4">
+                <button class="btn btn-outline-secondary">Invitados anticipados</button>
+                <button class="btn btn-outline-secondary">Invitados APP</button>
+                <button class="btn btn-outline-secondary">Registro de socios</button>
+            </div>
+
+            <h6 class="text-uppercase text-muted small mb-2">Diario</h6>
+            <div class="d-grid gap-2 mb-4">
+                <button class="btn btn-outline-secondary">Registro de eventos</button>
+                <button class="btn btn-outline-secondary">Salida colaborador</button>
+            </div>
+
+            <button class="btn btn-danger mt-auto w-100">
+                Salir
+            </button>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="col-12 col-md-9 col-lg-10 p-4">
+
+            <!-- HEADER -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h4 class="fw-bold mb-0">
+                        Sistema de Control de Ingreso
+                    </h4>
+                    <small class="text-muted">Country Club Costa Rica</small>
+                </div>
+
+                <span class="badge rounded-pill px-3 py-2"
+                      style="background-color: var(--cc-verde);">
+                    CRCC
+                </span>
+            </div>
+
+            <!-- TABLE -->
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-0">
+
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle text-center mb-0">
+                            <thead style="background-color: var(--cc-verde); color:white;">
+                                <tr>
+                                    <th>Tipo</th>
+                                    <th>Nombre</th>
+                                    <th>Fecha</th>
+                                    <th>Identificación</th>
+                                    <th>ID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Socio</td>
+                                    <td>Juan Pérez</td>
+                                    <td>@DateTime.Now.ToString("dd/MM/yyyy")</td>
+                                    <td>12345678</td>
+                                    <td>001</td>
+                                </tr>
+                                @* luego foreach *@
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="mt-4 text-muted small d-flex flex-wrap justify-content-between">
+                <span>Equipo: TI03 | Puerto: COM9</span>
+                <span>Ubicación: PUESTO67</span>
+                <span>@DateTime.Now.ToString("dd/MM/yyyy HH:mm")</span>
+            </footer>
+
+        </main>
+
+    </div>
+</div>
+
+<!-- 🔥 MODAL (PARTIAL) – SIEMPRE AL FINAL -->
+@Html.Partial("_RegistrarSocio")

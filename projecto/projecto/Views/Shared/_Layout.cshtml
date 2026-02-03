@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Country Club Costa Rica</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- Country Club Bootstrap Theme -->
+    <style>
+        :root {
+            --cc-verde: #2f5d57;
+            --cc-verde-claro: #6f9e9a;
+            --cc-dorado: #b68b3c;
+            --cc-negro: #1f1f1f;
+            --cc-blanco: #ffffff;
+        }
+
+        /* Bootstrap overrides */
+        .bg-primary {
+            background-color: var(--cc-verde) !important;
+        }
+
+        .btn-primary,
+        .btn-cc {
+            background-color: var(--cc-verde);
+            border-color: var(--cc-verde);
+            color: #fff;
+            border-radius: 12px;
+        }
+
+            .btn-primary:hover,
+            .btn-cc:hover {
+                background-color: var(--cc-verde-claro);
+                border-color: var(--cc-verde-claro);
+            }
+
+        .text-primary {
+            color: var(--cc-verde) !important;
+        }
+
+        .link-primary,
+        .link-cc {
+            color: var(--cc-verde);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+            .link-primary:hover,
+            .link-cc:hover {
+                color: var(--cc-dorado);
+                text-decoration: underline;
+            }
+
+        /* Inputs */
+        .form-control:focus {
+            border-color: var(--cc-verde);
+            box-shadow: 0 0 0 0.15rem rgba(47, 93, 87, 0.25);
+        }
+
+        /* Checkbox */
+        .form-check-input:checked {
+            background-color: var(--cc-verde);
+            border-color: var(--cc-verde);
+        }
+
+        /* Card */
+        .card {
+            border-radius: 1.5rem;
+        }
+
+        footer {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- PAGE CONTENT -->
+    <main class="container-fluid p-0">
+        @RenderBody()
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-3">
+        <p class="mb-0">&copy; @DateTime.Now.Year - Country Club Costa Rica</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <!-- Bootstrap 5 Bundle (manuel garanti) -->
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

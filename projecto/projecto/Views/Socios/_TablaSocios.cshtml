@@ -1,0 +1,27 @@
+﻿@model IEnumerable<projecto.Model.Socio>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var s in Model)
+    {
+        <tr style="cursor:pointer">
+            <td>@s.CodigoSocio</td>
+
+            <!-- DETALLE -->
+            <td onclick="verDetalleSocio(@s.IdSocio)">
+                @s.Nombre @s.Apellidos
+            </td>
+
+            <!-- REGISTRO -->
+            <td onclick="registrarIngreso(@s.IdSocio)">
+                @s.IdSocio
+            </td>
+        </tr>
+    }
+}
+else
+{
+    <tr>
+        <td colspan="3">No se encontraron socios</td>
+    </tr>
+}

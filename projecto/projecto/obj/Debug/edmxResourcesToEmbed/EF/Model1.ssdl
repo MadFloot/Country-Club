@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ControlAccesoDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACCESO">
+    <Key>
+      <PropertyRef Name="IdAcceso" />
+    </Key>
+    <Property Name="IdAcceso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaHoraIngreso" Type="datetime" />
+    <Property Name="Resultado" Type="varchar" MaxLength="20" />
+    <Property Name="MotivoDenegacion" Type="varchar" MaxLength="100" />
+    <Property Name="Caseta" Type="varchar" MaxLength="50" />
+    <Property Name="TipoPersona" Type="varchar" MaxLength="20" />
+    <Property Name="IdSocio" Type="int" />
+    <Property Name="IdInvitado" Type="int" />
+    <Property Name="IdProveedor" Type="int" />
+    <Property Name="IdVisitante" Type="int" />
+    <Property Name="IdVehiculo" Type="int" />
+    <Property Name="IdUsuarioOficial" Type="int" />
+  </EntityType>
+  <EntityType Name="BITACORA_SISTEMA">
+    <Key>
+      <PropertyRef Name="IdBitacora" />
+    </Key>
+    <Property Name="IdBitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaHora" Type="datetime" Nullable="false" />
+    <Property Name="IdUsuario" Type="int" />
+    <Property Name="TablaAfectada" Type="varchar" MaxLength="50" />
+    <Property Name="TipoOperacion" Type="varchar" MaxLength="20" />
+    <Property Name="LlaveRegistro" Type="varchar" MaxLength="50" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="EVENTO">
+    <Key>
+      <PropertyRef Name="IdEvento" />
+    </Key>
+    <Property Name="IdEvento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreEvento" Type="varchar" MaxLength="100" />
+    <Property Name="TipoEvento" Type="varchar" MaxLength="50" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="HoraInicio" Type="time" Precision="7" />
+    <Property Name="HoraFin" Type="time" Precision="7" />
+    <Property Name="Ubicacion" Type="varchar" MaxLength="100" />
+    <Property Name="CupoMaximo" Type="int" />
+    <Property Name="Estado" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="EVENTO_PARTICIPANTE">
+    <Key>
+      <PropertyRef Name="IdEventoParticipante" />
+    </Key>
+    <Property Name="IdEventoParticipante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEvento" Type="int" Nullable="false" />
+    <Property Name="TipoParticipante" Type="varchar" MaxLength="20" />
+    <Property Name="IdSocio" Type="int" />
+    <Property Name="IdInvitado" Type="int" />
+    <Property Name="IdProveedor" Type="int" />
+    <Property Name="IdVisitante" Type="int" />
+    <Property Name="EstadoParticipacion" Type="varchar" MaxLength="20" />
+    <Property Name="Asistencia" Type="bit" />
+  </EntityType>
+  <EntityType Name="PASE_INVITADO">
+    <Key>
+      <PropertyRef Name="IdPaseInvitado" />
+    </Key>
+    <Property Name="IdPaseInvitado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoPase" Type="varchar" MaxLength="20" />
+    <Property Name="IdInvitado" Type="int" />
+    <Property Name="IdSocioResponsable" Type="int" />
+    <Property Name="FechaGeneracion" Type="datetime" />
+    <Property Name="FechaValidaDesde" Type="datetime" />
+    <Property Name="FechaValidaHasta" Type="datetime" />
+    <Property Name="EstadoPase" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="PASE_PROVEEDOR">
+    <Key>
+      <PropertyRef Name="IdPaseProveedor" />
+    </Key>
+    <Property Name="IdPaseProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoPase" Type="varchar" MaxLength="20" />
+    <Property Name="IdProveedor" Type="int" />
+    <Property Name="FechaAutorizada" Type="date" />
+    <Property Name="HoraInicioAutorizada" Type="time" Precision="7" />
+    <Property Name="HoraFinAutorizada" Type="time" Precision="7" />
+    <Property Name="EstadoPase" Type="varchar" MaxLength="20" />
+    <Property Name="GeneradoPor" Type="int" />
+  </EntityType>
+  <EntityType Name="PROVEEDOR">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+    </Key>
+    <Property Name="IdProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreComercial" Type="varchar" MaxLength="50" />
+    <Property Name="NombreContacto" Type="varchar" MaxLength="50" />
+    <Property Name="TipoDocumento" Type="varchar" MaxLength="20" />
+    <Property Name="NumeroDocumento" Type="varchar" MaxLength="20" />
+    <Property Name="TelefonoContacto" Type="varchar" MaxLength="20" />
+    <Property Name="EmailContacto" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ROL">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreRol" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SOCIO">
+    <Key>
+      <PropertyRef Name="IdSocio" />
+    </Key>
+    <Property Name="IdSocio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoSocio" Type="varchar" MaxLength="20" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="50" />
+    <Property Name="EstadoMembresia" Type="varchar" MaxLength="20" />
+    <Property Name="Categoria" Type="varchar" MaxLength="20" />
+    <Property Name="IdSocioTitular" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="USUARIO_SISTEMA">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContrasenaHash" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="NombreCompleto" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="IdRol" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VEHICULO">
+    <Key>
+      <PropertyRef Name="IdVehiculo" />
+    </Key>
+    <Property Name="IdVehiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Placa" Type="varchar" MaxLength="10" />
+    <Property Name="TipoVehiculo" Type="varchar" MaxLength="20" />
+    <Property Name="Color" Type="varchar" MaxLength="20" />
+    <Property Name="IdSocio" Type="int" />
+    <Property Name="IdProveedor" Type="int" />
+    <Property Name="IdVisitante" Type="int" />
+  </EntityType>
+  <EntityType Name="VISITANTE">
+    <Key>
+      <PropertyRef Name="IdVisitante" />
+    </Key>
+    <Property Name="IdVisitante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="50" />
+    <Property Name="TipoDocumento" Type="varchar" MaxLength="20" />
+    <Property Name="NumeroDocumento" Type="varchar" MaxLength="20" />
+    <Property Name="MotivoVisita" Type="varchar" MaxLength="100" />
+    <Property Name="NombreContacto" Type="varchar" MaxLength="50" />
+    <Property Name="DepartamentoContacto" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Acceso_Proveedor">
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
+    <End Role="ACCESO" Type="Self.ACCESO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="IdProveedor" />
+      </Principal>
+      <Dependent Role="ACCESO">
+        <PropertyRef Name="IdProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Acceso_Socio">
+    <End Role="SOCIO" Type="Self.SOCIO" Multiplicity="0..1" />
+    <End Role="ACCESO" Type="Self.ACCESO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOCIO">
+        <PropertyRef Name="IdSocio" />
+      </Principal>
+      <Dependent Role="ACCESO">
+        <PropertyRef Name="IdSocio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Acceso_Usuario">
+    <End Role="USUARIO_SISTEMA" Type="Self.USUARIO_SISTEMA" Multiplicity="0..1" />
+    <End Role="ACCESO" Type="Self.ACCESO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO_SISTEMA">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="ACCESO">
+        <PropertyRef Name="IdUsuarioOficial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Acceso_Vehiculo">
+    <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="0..1" />
+    <End Role="ACCESO" Type="Self.ACCESO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEHICULO">
+        <PropertyRef Name="IdVehiculo" />
+      </Principal>
+      <Dependent Role="ACCESO">
+        <PropertyRef Name="IdVehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Acceso_Visitante">
+    <End Role="VISITANTE" Type="Self.VISITANTE" Multiplicity="0..1" />
+    <End Role="ACCESO" Type="Self.ACCESO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VISITANTE">
+        <PropertyRef Name="IdVisitante" />
+      </Principal>
+      <Dependent Role="ACCESO">
+        <PropertyRef Name="IdVisitante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bitacora_Usuario">
+    <End Role="USUARIO_SISTEMA" Type="Self.USUARIO_SISTEMA" Multiplicity="0..1" />
+    <End Role="BITACORA_SISTEMA" Type="Self.BITACORA_SISTEMA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO_SISTEMA">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="BITACORA_SISTEMA">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventoParticipante_Evento">
+    <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="1" />
+    <End Role="EVENTO_PARTICIPANTE" Type="Self.EVENTO_PARTICIPANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EVENTO">
+        <PropertyRef Name="IdEvento" />
+      </Principal>
+      <Dependent Role="EVENTO_PARTICIPANTE">
+        <PropertyRef Name="IdEvento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PaseProveedor_Proveedor">
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
+    <End Role="PASE_PROVEEDOR" Type="Self.PASE_PROVEEDOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="IdProveedor" />
+      </Principal>
+      <Dependent Role="PASE_PROVEEDOR">
+        <PropertyRef Name="IdProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PaseProveedor_Usuario">
+    <End Role="USUARIO_SISTEMA" Type="Self.USUARIO_SISTEMA" Multiplicity="0..1" />
+    <End Role="PASE_PROVEEDOR" Type="Self.PASE_PROVEEDOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO_SISTEMA">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="PASE_PROVEEDOR">
+        <PropertyRef Name="GeneradoPor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Rol">
+    <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+    <End Role="USUARIO_SISTEMA" Type="Self.USUARIO_SISTEMA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROL">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="USUARIO_SISTEMA">
+        <PropertyRef Name="IdRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehiculo_Proveedor">
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
+    <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="IdProveedor" />
+      </Principal>
+      <Dependent Role="VEHICULO">
+        <PropertyRef Name="IdProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehiculo_Socio">
+    <End Role="SOCIO" Type="Self.SOCIO" Multiplicity="0..1" />
+    <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOCIO">
+        <PropertyRef Name="IdSocio" />
+      </Principal>
+      <Dependent Role="VEHICULO">
+        <PropertyRef Name="IdSocio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehiculo_Visitante">
+    <End Role="VISITANTE" Type="Self.VISITANTE" Multiplicity="0..1" />
+    <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VISITANTE">
+        <PropertyRef Name="IdVisitante" />
+      </Principal>
+      <Dependent Role="VEHICULO">
+        <PropertyRef Name="IdVisitante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ControlAccesoDBModelStoreContainer">
+    <EntitySet Name="ACCESO" EntityType="Self.ACCESO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BITACORA_SISTEMA" EntityType="Self.BITACORA_SISTEMA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EVENTO" EntityType="Self.EVENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EVENTO_PARTICIPANTE" EntityType="Self.EVENTO_PARTICIPANTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PASE_INVITADO" EntityType="Self.PASE_INVITADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PASE_PROVEEDOR" EntityType="Self.PASE_PROVEEDOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROL" EntityType="Self.ROL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOCIO" EntityType="Self.SOCIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIO_SISTEMA" EntityType="Self.USUARIO_SISTEMA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VEHICULO" EntityType="Self.VEHICULO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VISITANTE" EntityType="Self.VISITANTE" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Acceso_Proveedor" Association="Self.FK_Acceso_Proveedor">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="ACCESO" EntitySet="ACCESO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Acceso_Socio" Association="Self.FK_Acceso_Socio">
+      <End Role="SOCIO" EntitySet="SOCIO" />
+      <End Role="ACCESO" EntitySet="ACCESO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Acceso_Usuario" Association="Self.FK_Acceso_Usuario">
+      <End Role="USUARIO_SISTEMA" EntitySet="USUARIO_SISTEMA" />
+      <End Role="ACCESO" EntitySet="ACCESO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Acceso_Vehiculo" Association="Self.FK_Acceso_Vehiculo">
+      <End Role="VEHICULO" EntitySet="VEHICULO" />
+      <End Role="ACCESO" EntitySet="ACCESO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Acceso_Visitante" Association="Self.FK_Acceso_Visitante">
+      <End Role="VISITANTE" EntitySet="VISITANTE" />
+      <End Role="ACCESO" EntitySet="ACCESO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bitacora_Usuario" Association="Self.FK_Bitacora_Usuario">
+      <End Role="USUARIO_SISTEMA" EntitySet="USUARIO_SISTEMA" />
+      <End Role="BITACORA_SISTEMA" EntitySet="BITACORA_SISTEMA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventoParticipante_Evento" Association="Self.FK_EventoParticipante_Evento">
+      <End Role="EVENTO" EntitySet="EVENTO" />
+      <End Role="EVENTO_PARTICIPANTE" EntitySet="EVENTO_PARTICIPANTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PaseProveedor_Proveedor" Association="Self.FK_PaseProveedor_Proveedor">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="PASE_PROVEEDOR" EntitySet="PASE_PROVEEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PaseProveedor_Usuario" Association="Self.FK_PaseProveedor_Usuario">
+      <End Role="USUARIO_SISTEMA" EntitySet="USUARIO_SISTEMA" />
+      <End Role="PASE_PROVEEDOR" EntitySet="PASE_PROVEEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Rol" Association="Self.FK_Usuario_Rol">
+      <End Role="ROL" EntitySet="ROL" />
+      <End Role="USUARIO_SISTEMA" EntitySet="USUARIO_SISTEMA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehiculo_Proveedor" Association="Self.FK_Vehiculo_Proveedor">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="VEHICULO" EntitySet="VEHICULO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehiculo_Socio" Association="Self.FK_Vehiculo_Socio">
+      <End Role="SOCIO" EntitySet="SOCIO" />
+      <End Role="VEHICULO" EntitySet="VEHICULO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehiculo_Visitante" Association="Self.FK_Vehiculo_Visitante">
+      <End Role="VISITANTE" EntitySet="VISITANTE" />
+      <End Role="VEHICULO" EntitySet="VEHICULO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

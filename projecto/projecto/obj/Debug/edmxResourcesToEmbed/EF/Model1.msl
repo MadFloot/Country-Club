@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ControlAccesoDBModelStoreContainer" CdmEntityContainer="ControlAccesoDBEntities">
+    <EntitySetMapping Name="ACCESO">
+      <EntityTypeMapping TypeName="ControlAccesoDBModel.ACCESO">
+        <MappingFragment StoreEntitySet="ACCESO">
+          <ScalarProperty Name="IdAcceso" ColumnName="IdAcceso" />
+          <ScalarProperty Name="FechaHoraIngreso" ColumnName="FechaHoraIngreso" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="MotivoDenegacion" ColumnName="MotivoDenegacion" />
+          <ScalarProperty Name="Caseta" ColumnName="Caseta" />
+          <ScalarProperty Name="TipoPersona" ColumnName="TipoPersona" />
+          <ScalarProperty Name="IdSocio" ColumnName="IdSocio" />
+          <ScalarProperty Name="IdInvitado" ColumnName="IdInvitado" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="IdVisitante" ColumnName="IdVisitante" />
+          <ScalarProperty Name="IdVehiculo" ColumnName="IdVehiculo" />
+          <ScalarProperty Name="IdUsuarioOficial" ColumnName="IdUsuarioOficial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BITACORA_SISTEMA">
+      <EntityTypeMapping TypeName="ControlAccesoDBModel.BITACORA_SISTEMA">
+        <MappingFragment StoreEntitySet="BITACORA_SISTEMA">
+          <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+          <ScalarProperty Name="FechaHora" ColumnName="FechaHora" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="TablaAfectada" ColumnName="TablaAfectada" />
+          <ScalarProperty Name="TipoOperacion" ColumnName="TipoOperacion" />
+          <ScalarProperty Name="LlaveRegistro" ColumnName="LlaveRegistro" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EVENTO">
+      <EntityTypeMapping TypeName="ControlAccesoDBModel.EVENTO">
+        <MappingFragment StoreEntitySet="EVENTO">
+          <ScalarProperty Name="IdEvento" ColumnName="IdEvento" />
+          <ScalarProperty Name="NombreEvento" ColumnName="NombreEvento" />
+          <ScalarProperty Name="TipoEvento" ColumnName="TipoEvento" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+          <ScalarProperty Name="CupoMaximo" ColumnName="CupoMaximo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EVENTO_PARTICIPANTE">
+      <EntityTypeMapping TypeName="ControlAccesoDBModel.EVENTO_PARTICIPANTE">
+        <MappingFragment StoreEntitySet="EVENTO_PARTICIPANTE">
+          <ScalarProperty Name="IdEventoParticipante" ColumnName="IdEventoParticipante" />
+          <ScalarProperty Name="IdEvento" ColumnName="IdEvento" />
+          <ScalarProperty Name="TipoParticipante" ColumnName="TipoParticipante" />
+          <ScalarProperty Name="IdSocio" ColumnName="IdSocio" />
+          <ScalarProperty Name="IdInvitado" ColumnName="IdInvitado" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="IdVisitante" ColumnName="IdVisitante" />
+          <ScalarProperty Name="EstadoParticipacion" ColumnName="EstadoParticipacion" />
+          <ScalarProperty Name="Asistencia" ColumnName="Asistencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PASE_INVITADO">
+      <EntityTypeMapping TypeName="ControlAccesoDBModel.PASE_INVITADO">
+        <MappingFragment StoreEntitySet="PASE_INVITADO">
+          <ScalarProperty Name="IdPaseInvitado" ColumnName="IdPaseInvitado" />
+          <ScalarProperty Name="CodigoPase" ColumnName="CodigoPase" />
+          <ScalarProperty Name="IdInvitado" ColumnName="IdInvitado" />
+          <ScalarProperty Name="IdSocioResponsable" ColumnName="IdSocioResponsable" />
+          <ScalarProperty Name="FechaGeneracion" ColumnName="FechaGeneracion" />
+          <ScalarProperty Name="FechaValidaDesde" ColumnName="FechaValidaDesde" />
+          <ScalarProperty Name="FechaValidaHasta" ColumnName="FechaValidaHasta" />
+          <ScalarProperty Name="EstadoPase" ColumnName="EstadoPase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PASE_PROVEEDOR">
+      <EntityTypeMapping TypeName="ControlAccesoDBModel.PASE_PROVEEDOR">
+        <MappingFragment StoreEntitySet="PASE_PROVEEDOR">
+          <ScalarProperty Name="IdPaseProveedor" ColumnName="IdPaseProveedor" />
+          <ScalarProperty Name="CodigoPase" ColumnName="CodigoPase" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="FechaAutorizada" ColumnName="FechaAutorizada" />
+          <ScalarProperty Name="HoraInicioAutorizada" ColumnName="HoraInicioAutorizada" />
+          <ScalarProperty Name="HoraFinAutorizada" ColumnName="HoraFinAutorizada" />
+          <ScalarProperty Name="EstadoPase" ColumnName="EstadoPase" />
+          <ScalarProperty Name="GeneradoPor" ColumnName="GeneradoPor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVEEDOR">
+      <EntityTypeMapping TypeName="ControlAccesoDBModel.PROVEEDOR">
+        <MappingFragment StoreEntitySet="PROVEEDOR">
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="NombreComercial" ColumnName="NombreComercial" />
+          <ScalarProperty Name="NombreContacto" ColumnName="NombreContacto" />
+          <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+          <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+          <ScalarProperty Name="TelefonoContacto" ColumnName="TelefonoContacto" />
+          <ScalarProperty Name="EmailContacto" ColumnName="EmailContacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROL">
+      <EntityTypeMapping TypeName="ControlAccesoDBModel.ROL">
+        <MappingFragment StoreEntitySet="ROL">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOCIO">
+      <EntityTypeMapping TypeName="ControlAccesoDBModel.SOCIO">
+        <MappingFragment StoreEntitySet="SOCIO">
+          <ScalarProperty Name="IdSocio" ColumnName="IdSocio" />
+          <ScalarProperty Name="CodigoSocio" ColumnName="CodigoSocio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="EstadoMembresia" ColumnName="EstadoMembresia" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="IdSocioTitular" ColumnName="IdSocioTitular" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO_SISTEMA">
+      <EntityTypeMapping TypeName="ControlAccesoDBModel.USUARIO_SISTEMA">
+        <MappingFragment StoreEntitySet="USUARIO_SISTEMA">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="ContrasenaHash" ColumnName="ContrasenaHash" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEHICULO">
+      <EntityTypeMapping TypeName="ControlAccesoDBModel.VEHICULO">
+        <MappingFragment StoreEntitySet="VEHICULO">
+          <ScalarProperty Name="IdVehiculo" ColumnName="IdVehiculo" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="TipoVehiculo" ColumnName="TipoVehiculo" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="IdSocio" ColumnName="IdSocio" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="IdVisitante" ColumnName="IdVisitante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VISITANTE">
+      <EntityTypeMapping TypeName="ControlAccesoDBModel.VISITANTE">
+        <MappingFragment StoreEntitySet="VISITANTE">
+          <ScalarProperty Name="IdVisitante" ColumnName="IdVisitante" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+          <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+          <ScalarProperty Name="MotivoVisita" ColumnName="MotivoVisita" />
+          <ScalarProperty Name="NombreContacto" ColumnName="NombreContacto" />
+          <ScalarProperty Name="DepartamentoContacto" ColumnName="DepartamentoContacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

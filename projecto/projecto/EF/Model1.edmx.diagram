@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d632e44ca1fa499890568e890cfddf2a" Name="Diagram1">
+        <EntityTypeShape EntityType="ControlAccesoDBModel.ACCESO" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlAccesoDBModel.BITACORA_SISTEMA" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlAccesoDBModel.EVENTO" Width="1.5" PointX="8.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlAccesoDBModel.EVENTO_PARTICIPANTE" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlAccesoDBModel.PASE_INVITADO" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlAccesoDBModel.PASE_PROVEEDOR" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlAccesoDBModel.PROVEEDOR" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlAccesoDBModel.ROL" Width="1.5" PointX="1.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlAccesoDBModel.SOCIO" Width="1.5" PointX="3.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlAccesoDBModel.USUARIO_SISTEMA" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlAccesoDBModel.VEHICULO" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ControlAccesoDBModel.VISITANTE" Width="1.5" PointX="3.75" PointY="15.125" IsExpanded="true" />
+        <AssociationConnector Association="ControlAccesoDBModel.FK_Acceso_Proveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlAccesoDBModel.FK_Acceso_Socio" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlAccesoDBModel.FK_Acceso_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlAccesoDBModel.FK_Acceso_Vehiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlAccesoDBModel.FK_Acceso_Visitante" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlAccesoDBModel.FK_Bitacora_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlAccesoDBModel.FK_EventoParticipante_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlAccesoDBModel.FK_PaseProveedor_Proveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlAccesoDBModel.FK_PaseProveedor_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlAccesoDBModel.FK_Vehiculo_Proveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlAccesoDBModel.FK_Usuario_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlAccesoDBModel.FK_Vehiculo_Socio" ManuallyRouted="false" />
+        <AssociationConnector Association="ControlAccesoDBModel.FK_Vehiculo_Visitante" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

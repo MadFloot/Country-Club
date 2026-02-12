@@ -1,0 +1,23 @@
+﻿@model projecto.Model.Socio
+
+<div class="modal-header">
+    <h5 class="modal-title">Datos del socio</h5>
+    <button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+    <div class="row">
+        <div class="col-md-8">
+            <p><b>Carnet:</b> @Model.CodigoSocio</p>
+            <p><b>Nombre:</b> @Model.Nombre @Model.Apellidos</p>
+            <p><b>Email:</b> @Model.Email</p>
+            <p><b>Telefono:</b> @Model.Telefono</p>
+        </div>
+
+        <div class="col-md-4 text-center">
+            <img src="~/assets/images/avatar-default.png" class="img-fluid rounded">
+        </div>
+    </div>
+
+</div>

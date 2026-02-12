@@ -1,106 +1,74 @@
-﻿
-@{
-    ViewBag.Title = "RegistrarSocio";
-}
-
-
-<div class="modal fade" id="modalSocio" tabindex="-1">
+﻿<div class="modal fade" id="modalSocio" tabindex="-1">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content rounded-4">
 
-            <!-- HEADER -->
-            <div class="modal-header"
-                 style="background-color: var(--cc-verde); color:white;">
-                <h5 class="modal-title fw-bold">
-                    Registrar ingreso de socio
-                </h5>
-                <button type="button" class="btn-close btn-close-white"
-                        data-bs-dismiss="modal"></button>
+            <div class="modal-header" style="background-color: var(--cc-verde); color:white;">
+                <h5 class="modal-title fw-bold">Registrar ingreso de socio</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
 
-            <!-- BODY -->
             <div class="modal-body">
-
                 <div class="row">
 
-                    <!-- LEFT: SEARCH + TABLE -->
                     <div class="col-md-8">
 
-                        <!-- SEARCH -->
                         <div class="row mb-3">
                             <div class="col-md-4">
-                                <label class="form-label">Buscar por</label>
-                                <select class="form-select">
-                                    <option>Nombre</option>
-                                    <option>Carnet</option>
-                                    <option>Identificación</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-8">
                                 <label class="form-label">Buscar</label>
-                                <input type="text"
+                                <input id="txtBuscar"
+                                       type="text"
                                        class="form-control"
-                                       placeholder="Ingrese criterio de búsqueda">
+                                       placeholder="Ingrese criterio"
+                                       onkeyup="buscarSocio()">
                             </div>
                         </div>
 
-                        <!-- TABLE -->
                         <div class="table-responsive border rounded">
-                            <table class="table table-hover align-middle text-center mb-0">
+                            <table class="table table-hover text-center">
                                 <thead class="table-light">
                                     <tr>
                                         <th>Carnet</th>
                                         <th>Nombre</th>
-                                        <th>Identificación</th>
+                                        <th>ID</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="table-active">
-                                        <td>1-0001-00-0</td>
-                                        <td>Dueñas Leiva Marcos</td>
-                                        <td>900440475</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1-0001-02-6</td>
-                                        <td>Amrhein Gonzalez Katherin</td>
-                                        <td>105730041</td>
-                                    </tr>
+                                <tbody id="tablaSocios">
                                 </tbody>
                             </table>
                         </div>
 
                     </div>
 
-
-                    <!-- RIGHT: PHOTO + SELECT -->
                     <div class="col-md-4 text-center border-start">
-
-                        <button class="btn btn-info text-white w-100 mb-3">
-                            SELECCIONAR
-                        </button>
-
-                        <img src="~/assets/images/avatar-default.png"
+                        <img id="fotoSocio"
+                             src="~/assets/images/avatar-default.png"
                              class="img-fluid rounded shadow"
-                             alt="Foto socio"
                              style="max-height:260px;">
-
                     </div>
 
                 </div>
-
             </div>
 
-            <!-- FOOTER -->
             <div class="modal-footer">
-                <button class="btn btn-secondary"
-                        data-bs-dismiss="modal">
-                    Cerrar
-                </button>
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
 
         </div>
     </div>
 </div>
 
+<script>
+    function buscarSocio() {
 
+        var criterio = $("#txtBuscar").val();
+
+        $.get("/Socios/Buscar", { criterio: criterio }, function (data) {
+            $("#tablaSocios").html(data);
+        });
+    }
+</script>
+<script>
+    $('#modalSocio').on('shown.bs.modal', function () {
+        buscarSocio();   // modal açılır açılmaz listeyi getir
+    });
+</script>

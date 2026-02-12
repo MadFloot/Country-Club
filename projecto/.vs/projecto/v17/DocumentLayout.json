@@ -3,24 +3,62 @@
   "WorkspaceRootPath": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|c:\\users\\karao\\onedrive\\masa\u00FCst\u00FC\\7. d\u00F6nem\\dise\u00F1o desarrollo de sistemas\\country-club\\projecto\\projecto\\views\\home\\_registrarsocio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\views\\home\\_registrarsocio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|c:\\users\\karao\\onedrive\\masa\u00FCst\u00FC\\7. d\u00F6nem\\dise\u00F1o desarrollo de sistemas\\country-club\\projecto\\projecto\\views\\socios\\_tablasocios.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\views\\socios\\_tablasocios.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|c:\\users\\karao\\onedrive\\masa\u00FCst\u00FC\\7. d\u00F6nem\\dise\u00F1o desarrollo de sistemas\\country-club\\projecto\\projecto\\controllers\\socioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\controllers\\socioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|c:\\users\\karao\\onedrive\\masa\u00FCst\u00FC\\7. d\u00F6nem\\dise\u00F1o desarrollo de sistemas\\country-club\\projecto\\projecto\\views\\socios\\_detallesocio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\views\\socios\\_detallesocio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\views\\home\\_registrarsocio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\views\\home\\_registrarsocio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|c:\\users\\karao\\onedrive\\masa\u00FCst\u00FC\\7. d\u00F6nem\\dise\u00F1o desarrollo de sistemas\\country-club\\projecto\\projecto\\model\\ingresoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\model\\ingresoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|c:\\users\\karao\\onedrive\\masa\u00FCst\u00FC\\7. d\u00F6nem\\dise\u00F1o desarrollo de sistemas\\country-club\\projecto\\projecto\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|c:\\users\\karao\\onedrive\\masa\u00FCst\u00FC\\7. d\u00F6nem\\dise\u00F1o desarrollo de sistemas\\country-club\\projecto\\projecto\\ef\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\ef\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|c:\\users\\karao\\onedrive\\masa\u00FCst\u00FC\\7. d\u00F6nem\\dise\u00F1o desarrollo de sistemas\\country-club\\projecto\\projecto\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|projecto||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\model\\socio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\model\\socio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\scripts\\bootstrap.bundle.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\scripts\\bootstrap.bundle.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|solutionrelative:projecto\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8EB02066-3EBF-479B-870F-747A6570C36C}|projecto\\projecto.csproj|c:\\users\\karao\\onedrive\\masa\u00FCst\u00FC\\7. d\u00F6nem\\dise\u00F1o desarrollo de sistemas\\country-club\\projecto\\projecto\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +68,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,28 +80,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": "_DetalleSocio.cshtml",
+              "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Views\\Socios\\_DetalleSocio.cshtml",
+              "RelativeDocumentMoniker": "projecto\\Views\\Socios\\_DetalleSocio.cshtml",
+              "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Views\\Socios\\_DetalleSocio.cshtml",
+              "RelativeToolTip": "projecto\\Views\\Socios\\_DetalleSocio.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-12T16:55:15.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "_RegistrarSocio.cshtml",
               "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Views\\Home\\_RegistrarSocio.cshtml",
               "RelativeDocumentMoniker": "projecto\\Views\\Home\\_RegistrarSocio.cshtml",
               "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Views\\Home\\_RegistrarSocio.cshtml",
               "RelativeToolTip": "projecto\\Views\\Home\\_RegistrarSocio.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAwwGoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAwEkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-02-03T18:28:09.968Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "projecto\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "projecto\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T16:22:21.811Z"
             },
             {
               "$type": "Document",
@@ -73,13 +112,142 @@
               "RelativeDocumentMoniker": "projecto\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "projecto\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAwwHYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAAwHQAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-03T16:01:33.257Z"
+              "WhenOpened": "2026-02-03T16:01:33.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SociosController.cs",
+              "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Controllers\\SociosController.cs",
+              "RelativeDocumentMoniker": "projecto\\Controllers\\SociosController.cs",
+              "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Controllers\\SociosController.cs",
+              "RelativeToolTip": "projecto\\Controllers\\SociosController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwCUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T00:45:41.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_TablaSocios.cshtml",
+              "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Views\\Socios\\_TablaSocios.cshtml",
+              "RelativeDocumentMoniker": "projecto\\Views\\Socios\\_TablaSocios.cshtml",
+              "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Views\\Socios\\_TablaSocios.cshtml",
+              "RelativeToolTip": "projecto\\Views\\Socios\\_TablaSocios.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-12T16:31:12.805Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "projecto\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "projecto\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAAwGcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-03T16:27:31.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Web.config",
+              "RelativeDocumentMoniker": "projecto\\Web.config",
+              "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Web.config",
+              "RelativeToolTip": "projecto\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAjwEQAAADPAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-02-12T16:38:46.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Views\\Web.config",
+              "RelativeDocumentMoniker": "projecto\\Views\\Web.config",
+              "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Views\\Web.config",
+              "RelativeToolTip": "projecto\\Views\\Web.config",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAwCwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-02-12T16:39:10.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Model1.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\EF\\Model1.edmx",
+              "RelativeDocumentMoniker": "projecto\\EF\\Model1.edmx",
+              "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\EF\\Model1.edmx [Diagram1]",
+              "RelativeToolTip": "projecto\\EF\\Model1.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2026-02-12T16:42:06.311Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IngresoViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Model\\IngresoViewModel.cs",
+              "RelativeDocumentMoniker": "projecto\\Model\\IngresoViewModel.cs",
+              "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Model\\IngresoViewModel.cs",
+              "RelativeToolTip": "projecto\\Model\\IngresoViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T16:29:01.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "projecto",
+              "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\projecto.csproj",
+              "RelativeDocumentMoniker": "projecto\\projecto.csproj",
+              "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\projecto.csproj",
+              "RelativeToolTip": "projecto\\projecto.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-02-12T00:59:20.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Socio.cs",
+              "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Model\\Socio.cs",
+              "RelativeDocumentMoniker": "projecto\\Model\\Socio.cs",
+              "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Model\\Socio.cs",
+              "RelativeToolTip": "projecto\\Model\\Socio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T00:46:40.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "projecto\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "projecto\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T16:22:21.811Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "bootstrap.bundle.min.js",
               "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Scripts\\bootstrap.bundle.min.js",
               "RelativeDocumentMoniker": "projecto\\Scripts\\bootstrap.bundle.min.js",
@@ -87,19 +255,8 @@
               "RelativeToolTip": "projecto\\Scripts\\bootstrap.bundle.min.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-02-03T18:31:51.794Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "projecto\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\karao\\OneDrive\\Masa\u00FCst\u00FC\\7. d\u00F6nem\\Dise\u00F1o desarrollo de sistemas\\Country-Club\\projecto\\projecto\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "projecto\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAswFgAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-03T16:27:31.097Z"
+              "WhenOpened": "2026-02-03T18:31:51.794Z",
+              "EditorCaption": ""
             }
           ]
         }
